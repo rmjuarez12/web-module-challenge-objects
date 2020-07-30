@@ -148,9 +148,26 @@ and should return a string in the format `name} gave the restaurant a {rating}, 
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(/* code here */) {
-  /* code here */
+function getLastReview(reviewsArr) {
+  // Declare the variable to output
+  let output;
+
+  // Get the very last array item
+  const latestReview = reviewsArr.length - 1;
+
+  // Declare the variables to use
+  const reviewerName = reviewsArr[latestReview].name;
+  const reviewerRating = reviewsArr[latestReview].rating;
+  const reviewerFeedback = reviewsArr[latestReview].feedback;
+
+  // Fill out the output variable with the desired message
+  output = `${reviewerName} gave the restaurant a ${reviewerRating} star rating, and their feedback was: ${reviewerFeedback}`;
+
+  // Return the final output
+  return output;
 }
+
+console.log("The latest review: ", getLastReview(reviews));
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
