@@ -283,4 +283,5 @@ function carMarker(odometer) {
   return myObj;
 }
 
-console.log(carMarker(12).drive(50));
+const myCar = carMarker(12);
+console.log(myCar.drive(50));
