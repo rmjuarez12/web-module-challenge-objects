@@ -183,9 +183,34 @@ console.log("The latest review: ", getLastReview(reviews));
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
-function getReviewByRating(/* code here */) {
-  /* code here */
+function getReviewByRating(reviewsArr, rating) {
+  // Declare the output variable
+  let queriedReview;
+
+  // Declare the array saving the results
+  let allResults = [];
+
+  for (let i = 0; i < reviewsArr.length; i++) {
+    // Make sure the rating number is rounded down so it is within that number's range
+    const ratingCompare = Math.floor(reviewsArr[i].rating);
+
+    if (ratingCompare == rating) {
+      allResults.push(reviewsArr[i]);
+    }
+  }
+
+  // Check if there were results. If not, send a no results message
+  if (allResults.length > 0) {
+    queriedReview = allResults;
+  } else {
+    queriedReview = "No results found";
+  }
+
+  // Return the output
+  return queriedReview;
 }
+
+console.log("All results of reviews within the rating of 4 to 4.99: ", getReviewByRating(reviews, 4));
 
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
@@ -200,9 +225,31 @@ and should return an array of objects.
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }]
 */
-function getLongReviews(/* code here */) {
-  /* code here */
+function getLongReviews(reviewsArr) {
+  // Declare the output variable
+  let longReviews;
+
+  // Array to house all results
+  let allResults = [];
+
+  for (let i = 0; i < reviewsArr.length; i++) {
+    // Get the number of words on the string
+    const numOfWords = reviewsArr[i].feedback.split(" ").length;
+
+    // Check if a certain obj has a feedback of more than 15 words
+    if (numOfWords > 15) {
+      allResults.push(reviewsArr[i]);
+    }
+  }
+
+  // Assign the array to the output variable
+  longReviews = allResults;
+
+  // Return the output
+  return longReviews;
 }
+
+console.log("These are the reviews with longer than 15 words: ", getLongReviews(reviews));
 
 /* STRETCH 3:  This challenge is not related to the data above! 
 
@@ -221,6 +268,19 @@ The returned object should have the following characteristics:
          (2) returns the updated value of the `odometer`.
 */
 
-function carMaker(/* code here */) {
-  /* code here */
+function carMarker(odometer) {
+  // Declare the object to return
+  const myObj = {
+    odometer: odometer,
+    drive: function (distance) {
+      this.odometer += distance;
+
+      return this.odometer;
+    },
+  };
+
+  // Return the object
+  return myObj;
 }
+
+console.log(carMarker(12).drive(50));
