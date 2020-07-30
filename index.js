@@ -93,8 +93,17 @@ const reviews = [
 ];
 
 /* Task 3: Console.log just Julius' feedback */
+console.log("Julius' feedback: ", reviews[5].feedback);
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
+reviews.push({
+  name: "Richard Rodriguez",
+  rating: 5,
+  feedback: "I like burgers, so its a 5 stars from me!",
+});
+
+const lastReview = reviews.length - 1;
+console.log("My feedback on the venue: ", reviews[lastReview]);
 
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
 
